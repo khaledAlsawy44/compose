@@ -21,3 +21,22 @@ val purple200 = Color(0xFFBB86FC)
 val purple500 = Color(0xFF6200EE)
 val purple700 = Color(0xFF3700B3)
 val teal200 = Color(0xFF03DAC5)
+val cardBackGround = Color(0xFFFFFFFF)
+val textColor = Color(0xFF858585)
+val whiteIconColor = Color(0xFFF5F5F5)
+val darkIconColor = Color(0xFF3D3D3D)
+val purpleColor = Color(0xFF7664C4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
