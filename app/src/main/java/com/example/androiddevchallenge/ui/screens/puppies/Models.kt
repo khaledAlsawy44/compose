@@ -1,5 +1,7 @@
 package com.example.androiddevchallenge.ui.screens.puppies
 
+import com.example.androiddevchallenge.R
+
 inline class PuppyName(val name: String)
 inline class PuppyPicture(val url: String)
 data class PuppyAge(val age: Int, val ageType: AgeType)
@@ -42,42 +44,44 @@ sealed class PuppiesState {
 
 val dummyData: MutableMap<AgeType, PuppiesListUiData> = mutableMapOf(
     Pair(
-        AgeType.DAY,
+        AgeType.YEAR,
         PuppiesListUiData(
             isExpanded = true,
             puppiesList = listOf(
                 Puppy(
-                    puppyName = PuppyName("Abby"),
-                    puppyAge = PuppyAge(20, AgeType.DAY),
+                    puppyName = PuppyName("Artie"),
+                    puppyAge = PuppyAge(2, AgeType.YEAR),
                     puppyGender = PuppyGender.FEMALE,
-                    puppyPicture = PuppyPicture("https://images.unsplash.com/photo-1576036668621-a292c88aa53c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80"),
+                    puppyPicture = PuppyPicture(
+                        "https://images.unsplash.com/photo-1557584139-4a64373bd2f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                    ),
                     puppyOwner = PuppyOwner(
-                        ownerName = OwnerName("John"),
-                        ownerPhone = OwnerPhone("+123-56322365")
+                        ownerName = OwnerName("Ahmed"),
+                        ownerPhone = OwnerPhone("+223-56322365")
                     )
                 ),
                 Puppy(
-                    puppyName = PuppyName("Abe"),
-                    puppyAge = PuppyAge(25, AgeType.DAY),
-                    puppyGender = PuppyGender.MALE,
+                    puppyName = PuppyName("Ashley"),
+                    puppyAge = PuppyAge(3, AgeType.YEAR),
+                    puppyGender = PuppyGender.FEMALE,
                     puppyPicture = PuppyPicture(
-                        "https://images.unsplash.com/photo-1553882809-a4f57e59501d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80"
+                        "https://images.unsplash.com/photo-1422565096762-bdb997a56a84?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"
                     ),
                     puppyOwner = PuppyOwner(
-                        ownerName = OwnerName("Jack"),
-                        ownerPhone = OwnerPhone("+123-565521320")
+                        ownerName = OwnerName("Ragy"),
+                        ownerPhone = OwnerPhone("+155-5655206620")
                     )
                 ),
                 Puppy(
-                    puppyName = PuppyName("Alexis"),
-                    puppyAge = PuppyAge(18, AgeType.DAY),
+                    puppyName = PuppyName("Alvin"),
+                    puppyAge = PuppyAge(4, AgeType.YEAR),
                     puppyGender = PuppyGender.FEMALE,
                     puppyPicture = PuppyPicture(
-                        "https://images.unsplash.com/photo-1601758124277-f0086d5ab050?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=826&q=80"
+                        "https://images.unsplash.com/photo-1521218597721-2e247daed5db?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1053&q=80"
                     ),
                     puppyOwner = PuppyOwner(
-                        ownerName = OwnerName("Khaled"),
-                        ownerPhone = OwnerPhone("+123-565424120")
+                        ownerName = OwnerName("Noor"),
+                        ownerPhone = OwnerPhone("+443-565424120")
                     )
                 )
             )
@@ -128,49 +132,77 @@ val dummyData: MutableMap<AgeType, PuppiesListUiData> = mutableMapOf(
             )
         )
 
-    ),
-    Pair(
-        AgeType.YEAR,
+    ), Pair(
+        AgeType.DAY,
         PuppiesListUiData(
             isExpanded = true,
             puppiesList = listOf(
                 Puppy(
-                    puppyName = PuppyName("Artie"),
-                    puppyAge = PuppyAge(2, AgeType.YEAR),
+                    puppyName = PuppyName("Abby"),
+                    puppyAge = PuppyAge(20, AgeType.DAY),
                     puppyGender = PuppyGender.FEMALE,
-                    puppyPicture = PuppyPicture(
-                        "https://images.unsplash.com/photo-1557584139-4a64373bd2f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                    ),
+                    puppyPicture = PuppyPicture("https://images.unsplash.com/photo-1576036668621-a292c88aa53c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80"),
                     puppyOwner = PuppyOwner(
-                        ownerName = OwnerName("Ahmed"),
-                        ownerPhone = OwnerPhone("+223-56322365")
+                        ownerName = OwnerName("John"),
+                        ownerPhone = OwnerPhone("+123-56322365")
                     )
                 ),
                 Puppy(
-                    puppyName = PuppyName("Ashley"),
-                    puppyAge = PuppyAge(3, AgeType.YEAR),
-                    puppyGender = PuppyGender.FEMALE,
+                    puppyName = PuppyName("Abe"),
+                    puppyAge = PuppyAge(25, AgeType.DAY),
+                    puppyGender = PuppyGender.MALE,
                     puppyPicture = PuppyPicture(
-                        "https://images.unsplash.com/photo-1422565096762-bdb997a56a84?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"
+                        "https://images.unsplash.com/photo-1553882809-a4f57e59501d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80"
                     ),
                     puppyOwner = PuppyOwner(
-                        ownerName = OwnerName("Ragy"),
-                        ownerPhone = OwnerPhone("+155-5655206620")
+                        ownerName = OwnerName("Jack"),
+                        ownerPhone = OwnerPhone("+123-565521320")
                     )
                 ),
                 Puppy(
-                    puppyName = PuppyName("Alvin"),
-                    puppyAge = PuppyAge(4, AgeType.YEAR),
+                    puppyName = PuppyName("Alexis"),
+                    puppyAge = PuppyAge(18, AgeType.DAY),
                     puppyGender = PuppyGender.FEMALE,
                     puppyPicture = PuppyPicture(
-                        "https://images.unsplash.com/photo-1521218597721-2e247daed5db?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1053&q=80"
+                        "https://images.unsplash.com/photo-1601758124277-f0086d5ab050?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=826&q=80"
                     ),
                     puppyOwner = PuppyOwner(
-                        ownerName = OwnerName("Noor"),
-                        ownerPhone = OwnerPhone("+443-565424120")
+                        ownerName = OwnerName("Khaled"),
+                        ownerPhone = OwnerPhone("+123-565424120")
                     )
                 )
             )
         )
     )
+
+)
+
+val dummyPets = listOf(
+    Pet(
+        name = "Dog",
+        picture = R.drawable.ic_dog,
+        isSelected = true
+    ), Pet(
+        name = "Cat",
+        picture = R.drawable.ic_cat,
+        isSelected = false
+    ), Pet(
+        name = "Rabbit",
+        picture = R.drawable.ic_rabbit,
+        isSelected = false
+    ), Pet(
+        name = "Bird",
+        picture = R.drawable.ic_bird,
+        isSelected = false
+    ), Pet(
+        name = "Hamster",
+        picture = R.drawable.ic_hamster,
+        isSelected = false
+    )
+)
+
+data class Pet(
+    val name: String,
+    val picture: Int,
+    val isSelected: Boolean
 )

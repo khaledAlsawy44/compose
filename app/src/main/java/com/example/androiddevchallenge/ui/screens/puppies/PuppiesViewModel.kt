@@ -5,24 +5,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class PuppiesViewModel(
-
-) : ViewModel() {
+class PuppiesViewModel : ViewModel() {
 
 
     private val _uiState = MutableLiveData<PuppiesState>(PuppiesState.Loading)
     val uiState: LiveData<PuppiesState> = _uiState
 
-    private val _name = MutableLiveData("")
-    val name: LiveData<String> = _name
-
     init {
         viewModelScope.launch {
-            delay(500)
+            // delay 4 sec to display loading state
+            delay(1)
+
             _uiState.value = PuppiesState.Default(
                 puppiesData = dummyData
             )

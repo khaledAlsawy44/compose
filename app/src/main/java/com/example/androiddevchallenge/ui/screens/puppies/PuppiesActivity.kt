@@ -25,6 +25,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevchallenge.ui.screens.puppies.compose.HomeScreen
+import com.example.androiddevchallenge.ui.screens.puppies.compose.Loading
 import com.example.androiddevchallenge.ui.screens.puppydetails.PuppyDetailsActivity
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -49,7 +51,8 @@ class PuppiesActivity : AppCompatActivity() {
         val state: State<PuppiesState> = viewModel.uiState.observeAsState(PuppiesState.Loading)
         when (val value = state.value) {
             is PuppiesState.Default -> {
-                PuppiesList(value.puppiesData, ::onPuppyClicked, ::onExpandClicked)
+//                HomeScreen(value.puppiesData, ::onPuppyClicked)
+                HomeScreen(value.puppiesData, ::onPuppyClicked,::onExpandClicked)
             }
             PuppiesState.Loading -> {
                 Loading()
